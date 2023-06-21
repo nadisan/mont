@@ -40,12 +40,34 @@ void pall(stack_t **stack, unsigned int line_number)
 	stack_t *current = *stack;
 	unsigned int i = 0;
 
+<<<<<<< HEAD
 	while (current != NULL && i <= line_number)
 	{
 		printf("%d\n", current->n);
 		current = current->next;
 		i++;
 	}
+=======
+   if (argc == 2)
+	   pFile = fopen (argv[1] , "r");
+   if (pFile == NULL) perror ("Error opening file");
+   else
+   {
+     while ( !feof (pFile) )
+     {
+	line_number++;
+       if ( fgets (buffer , 100 , pFile) == NULL ) break;
+       fun = strtok(buffer, " \n");
+	
+       if (strcmp(fun, "push") == 0)
+	       push(&stack, line_number);
+       if (strcmp(fun, "pall") == 0)
+	       pall(&stack);	
+     }
+     fclose (pFile);
+   }
+   return 0;
+>>>>>>> parent of b9f44bc... Update main.c
 }
 /**
  * main- executes command from argument
