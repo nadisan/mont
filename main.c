@@ -44,6 +44,10 @@ int main(int argc, char *argv[])
 
    if (argc == 2)
 	   pFile = fopen (argv[1] , "r");
+  else
+	  printf("USAGE: monty file");
+	  exit(EXIT_FAILURE);
+	   
    if (pFile == NULL) perror ("Error opening file");
    else
    {
